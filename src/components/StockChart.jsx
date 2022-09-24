@@ -62,10 +62,13 @@ const StockChart = () => {
       type: "candlestick",
       // background: "#000",
       height: 350,
+      toolbar: {
+        show: false,
+      },
     },
     title: {
-      text: "CandleStick Chart",
-      align: "left",
+      text: "",
+      align: "",
     },
     xaxis: {
       type: "datetime",
@@ -106,29 +109,29 @@ const StockChart = () => {
 
   return (
     <div className="flex flex-col gap-5 justify-center">
-      <div className="pl-2 pb-5">
+      <div className="pl-2 pb-5 gap-4 flex flex-col xl:items-center xl:flex-row xl:justify-between">
         <p className="font-bold text-5xl text-blue-900 dark:text-white">
-          See Your Favorite Stocks
+          See Your <br /> Favorite Stocks
         </p>
-      </div>
-      <div>
-        <Select
-          showSearch
-          className="w-[180px] font-bold dark:text-black"
-          placeholder="Select a Stock"
-          optionFilterProp="children"
-          // onChange={(value) => setStockSymbol(symbols[value])}
-          filterOption={(input, option) =>
-            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-          }
-        >
-          {/* <Option value="NIFTY">NIFTY</Option> */}
-          {stockOptions?.map((stock, index) => (
-            <Option key={index} value={stock}>
-              {stock}
-            </Option>
-          ))}
-        </Select>
+        <div>
+          <Select
+            showSearch
+            className="w-[180px] font-bold dark:text-black"
+            placeholder="Select a Stock"
+            optionFilterProp="children"
+            // onChange={(value) => setStockSymbol(symbols[value])}
+            filterOption={(input, option) =>
+              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            {/* <Option value="NIFTY">NIFTY</Option> */}
+            {stockOptions?.map((stock, index) => (
+              <Option key={index} value={stock}>
+                {stock}
+              </Option>
+            ))}
+          </Select>
+        </div>
       </div>
       <div>
         {/* {price}
@@ -138,8 +141,7 @@ const StockChart = () => {
           options={chartData.options}
           series={chartData.series}
           type="candlestick"
-          width="700px"
-          className={`dark:text-white`}
+          className={`dark:text-white min-w-full`}
         />
       </div>
     </div>

@@ -16,7 +16,6 @@
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow: 0px 3px 5px 2px #ccc;
-  justify-content: end;
 }
 
 .navigation-icon-container {
@@ -36,4 +35,35 @@
   font-size: 20px;
   font-weight: bold;
   /* border: 2px solid rgb(205, 205, 205); */
+}
+
+.dark .ant-table {
+  border: 1px solid white;
+}
+
+.dark .ant-table-thead .ant-table-cell {
+  color: white;
+  background-color: #33373e;
+  font-size: 20px;
+  font-weight: bold;
+  /* border: 2px solid rgb(205, 205, 205); */
+}
+
+.dark .ant-table-content {
+  background-color: #000;
+  color: white;
+}
+
+.dark .ant-table-content .ant-table-row:hover {
+  color: black;
+}
+
+.ant-table-title {
+  color: rgb(43, 7, 158);
+}
+
+.dark .ant-table-title {
+  color: white;
+  background-color: #33373e;
+  border-bottom: 1px solid white;
 }

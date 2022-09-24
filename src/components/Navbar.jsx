@@ -12,9 +12,9 @@ const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
   return (
     <div>
-      <div>
-        <div className="w-full h-[70px] flex navbar pr-3 pt-3 dark:bg-secondary-dark-bg">
-          <p className="xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4 mt-2">
+      <div className="relative">
+        <div className="w-full pb-3 flex xl:flex-row flex-col xl:justify-end items-end xl:items-center navbar pr-3 pt-3 dark:bg-secondary-dark-bg dark:shadow-none">
+          <p className="xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4">
             {userProfile?.userName
               ? `Welcome, ${userProfile.userName}!`
               : `Welcome!`}
@@ -61,7 +61,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="options-pro-logo"
-              className="h-[100px] w-[100px] z-100 "
+              className="h-[100px] w-[100px] z-100"
             />
           </Link>
         </div>

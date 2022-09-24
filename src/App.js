@@ -12,8 +12,7 @@ import ThemeSettings from "./components/ThemeSettings";
 const App = () => {
   // const [themeSettings, setThemeSettings] = useState(false);
   // const [currentMode, setCurrentMode] = useState("Light");
-  const { currentMode, themeSettings, setThemeSettings } =
-    useStateContext();
+  const { currentMode, themeSettings, setThemeSettings } = useStateContext();
 
   // const setMode = (e) => {
   //   setCurrentMode(e.target.value);
@@ -23,9 +22,9 @@ const App = () => {
 
   // const themeSettings = true;
   return (
-    <div className={currentMode === "Dark" ? "h-[100vh] dark" : "h-[100vh]"}>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
+        <div className="flex relative">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
             <button
               type="button"
@@ -37,16 +36,18 @@ const App = () => {
             </button>
           </div>
         </div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
-          <Route path="/page3" element={<Page3 />} />
-          <Route path="/page4" element={<Page4 />} />
-          <Route path="/page5" element={<Page5 />} />
-          <Route path="/page6" element={<Page6 />} />
-        </Routes>
+        <div className="min-h-screen min-w-full bg-main-bg dark:bg-main-dark-bg">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/page1" element={<Page1 />} />
+            <Route path="/page2" element={<Page2 />} />
+            <Route path="/page3" element={<Page3 />} />
+            <Route path="/page4" element={<Page4 />} />
+            <Route path="/page5" element={<Page5 />} />
+            <Route path="/page6" element={<Page6 />} />
+          </Routes>
+        </div>
         <div>{themeSettings && <ThemeSettings />}</div>
       </BrowserRouter>
     </div>

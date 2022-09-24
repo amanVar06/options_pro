@@ -4,7 +4,45 @@ import { NavLink } from "react-router-dom";
 
 const Features = () => {
   return (
-    <div className="flex flex-col gap-3 justify-center">
+    <div className="flex flex-col gap-3">
+      <div>
+        <p className="text-5xl mb-5 text-blue-900 dark:text-white font-bold">
+          Features
+        </p>
+      </div>
+      <div className="xl:m-auto grid grid-cols-2 gap-x-24 gap-y-10">
+        {links.map((link, index) => (
+          <NavLink
+            to={`/page${index + 1}`}
+            key={link.name}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              key={link.name}
+              className="bg-white w-[160px] p-5 rounded-3xl shadow-xl h-[120px] dark:bg-secondary-dark-bg"
+            >
+              <img
+                src={require(`../images/${link.icon}`)}
+                alt={link.name}
+                width="40px"
+                height="40px"
+                className="mb-2"
+              />
+              <span className="capitalize font-semibold dark:text-white">
+                {link.name}
+              </span>
+            </div>
+          </NavLink>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Features;
+
+/**
+ * <div className="flex flex-col gap-3 justify-center">
       <p className="text-5xl text-blue-900 dark:text-white font-bold">
         Features
       </p>
@@ -15,17 +53,10 @@ const Features = () => {
               to={`/page${index + 1}`}
               key={link.name}
               style={{ textDecoration: "none" }}
-              // onClick={handleCloseSideBar}
-              // style={({ isActive }) => ({
-              //   backgroundColor: isActive ? currentColor : "",
-              // })}
-              // className={({ isActive }) =>
-              //   isActive ? activeLink : normalLink
-              // }
             >
               <div
                 key={link.name}
-                className="navigation-icon-container dark:bg-secondary-dark-bg bg-white"
+                className="bg-white w-[160px] p-5 rounded-3xl shadow-xl h-[120px] dark:bg-secondary-dark-bg"
               >
                 <img
                   src={require(`../images/${link.icon}`)}
@@ -43,7 +74,4 @@ const Features = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-export default Features;
+ */

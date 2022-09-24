@@ -39,7 +39,7 @@ const columns = [
     render: (_, { spotPrice }) => (
       <div className="flex flex-col">
         <div>
-          <p className="text-black text-lg">{spotPrice?.price}</p>
+          <p className="text-lg">{spotPrice?.price}</p>
         </div>
         <div className="text-lg">
           {spotPrice?.change > 0 ? (
@@ -68,7 +68,7 @@ const columns = [
     render: (_, { coi }) => (
       <div className="flex flex-col">
         <div>
-          <p className="text-black text-lg">{coi?.price}</p>
+          <p className="text-lg">{coi?.price}</p>
         </div>
         <div className="text-lg">
           {coi?.change > 0 ? (
@@ -119,16 +119,15 @@ const titleFunction = () => {
   const today = new Date();
   const todayArray = today.toString().split(" ").slice(0, 4);
   const reqString = `${todayArray[0]}, ${todayArray[2]} ${todayArray[1]} ${todayArray[3]}`;
-
   return (
     <div className="flex flex-row justify-between p-2">
       <div className="flex flex-row items-center gap-2">
-        <IoMdCalendar size={25} color={"#2b079e"} />
-        <p className="font-bold text-lg text-[#2b079e]">{reqString}</p>
+        <IoMdCalendar size={25} />
+        <p className="font-bold text-lg">{reqString}</p>
       </div>
       <div className="flex flex-row items-center gap-4">
-        <MdDownload size={25} color={"rgb(43, 7, 158)"} />
-        <GiFunnel size={25} color={"rgb(43, 7, 158)"} />
+        <MdDownload size={25} />
+        <GiFunnel size={25} />
       </div>
     </div>
   );
