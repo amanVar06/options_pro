@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
-import { BrowserRouter } from "react-router-dom";
+
 import { FiSettings } from "react-icons/fi";
 
 import { Route, Routes } from "react-router-dom";
@@ -23,7 +23,7 @@ const App = () => {
   // const themeSettings = true;
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
-      <BrowserRouter>
+      <>
         <div className="flex relative">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
             <button
@@ -49,7 +49,7 @@ const App = () => {
           </Routes>
         </div>
         <div>{themeSettings && <ThemeSettings />}</div>
-      </BrowserRouter>
+      </>
     </div>
   );
 };

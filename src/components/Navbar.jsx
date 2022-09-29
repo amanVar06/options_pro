@@ -1,19 +1,26 @@
 import React from "react";
 import logo from "../images/logo.jpeg";
+import opt_pro from "../images/opt_pro.png";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import createOrGetUser from "../utils/index";
-
+import { Button } from "antd";
 import useAuthStore from "../store/authStore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { AiOutlineLogout } from "react-icons/ai";
 
 const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
+  const navigate = useNavigate();
   return (
     <div>
       <div className="relative">
         <div className="w-full pb-3 flex xl:flex-row flex-col xl:justify-end items-end xl:items-center navbar pr-3 pt-3 dark:bg-secondary-dark-bg dark:shadow-none">
+          <div className="mr-3">
+            <Button type="primary" onClick={() => navigate("/feedback")}>
+              Redirect
+            </Button>
+          </div>
           <p className="xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4">
             {userProfile?.userName
               ? `Welcome, ${userProfile.userName}!`
@@ -59,7 +66,7 @@ const Navbar = () => {
         <div className="options-pro-logo-container absolute top-[20px] left-[20px]">
           <Link to="/">
             <img
-              src={logo}
+              src={opt_pro}
               alt="options-pro-logo"
               className="h-[100px] w-[100px] z-100"
             />
