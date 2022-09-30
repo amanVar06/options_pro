@@ -67,3 +67,52 @@
   background-color: #33373e;
   border-bottom: 1px solid white;
 }
+
+.navStar{
+  margin-right: 0.1rem;
+}
+
+.modal {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+}
+
+.popupmodel{
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 2%;
+}
+
+/* #PopUp_Issue{
+  margin-left: 2rem;
+} */
+
+.PopUpHeading{
+  margin-top: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color:rgb(30, 58, 138);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.PopUpRating{
+  padding-top: 1rem;
+  text-align: center;
+  margin-left: 3rem;
+}
+
+.closePop{
+  margin-left: 12rem;
+}
+
+.popup-content{
+  position: absolute !important;
+  top: 12% !important;
+  right: 1% !important;
+  pointer-events: auto !important;
+}

@@ -37,7 +37,7 @@ const App = () => {
           </div>
         </div>
         <div className="min-h-screen min-w-full bg-main-bg dark:bg-main-dark-bg">
-          <Navbar />
+          <Navbar currentMode={currentMode}/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/page1" element={<Page1 />} />

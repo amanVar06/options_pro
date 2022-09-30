@@ -1,67 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/logo.jpeg";
 import opt_pro from "../images/opt_pro.png";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+// import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import createOrGetUser from "../utils/index";
-import { Button } from "antd";
 import useAuthStore from "../store/authStore";
 import { Link, useNavigate } from "react-router-dom";
-
 import { AiOutlineLogout } from "react-icons/ai";
+import StarIcon from '@mui/icons-material/Star';
+import LogoutIcon from '@mui/icons-material/Logout';
+import PopUp from "./PopUp";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const { userProfile, addUser, removeUser } = useAuthStore();
-  const navigate = useNavigate();
+  const [popUp, savePopUp] = useState(false);
+  const closeModal = () => savePopUp(false);
+
+  function setStyle(index){
+    var colorIs = "";
+    colorIs = "Black";
+    const elements = document.getElementsByClassName('navBarIcons');
+    for(var i = 0; i < elements.length; i++) {
+      if(i === index) {
+        elements[i].style.color  = colorIs;
+        elements[i].style.boxShadow = "0px 5px 15px #00000059";
+      }
+    }
+  }
+
+  function removeStyle(){
+    const elements = document.getElementsByClassName('navBarIcons');
+    var colorIs;
+    if(props.currentMode === "Light")
+      colorIs = "rgb(30 58 138)"
+    else
+      colorIs = "White";
+    for(var i = 0; i < elements.length; i++) {
+        elements[i].style.color  = colorIs;
+        elements[i].style.boxShadow = "0px 0px 0px";
+    }
+  }
+
+  
   return (
     <div>
       <div className="relative">
         <div className="w-full pb-3 flex xl:flex-row flex-col xl:justify-end items-end xl:items-center navbar pr-3 pt-3 dark:bg-secondary-dark-bg dark:shadow-none">
           <div className="mr-3">
-            <Button type="primary" onClick={() => navigate("/feedback")}>
-              Redirect
-            </Button>
           </div>
           <p className="xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4">
             {userProfile?.userName
               ? `Welcome, ${userProfile.userName}!`
               : `Welcome!`}
           </p>
-          {userProfile ? (
-            <div className="flex gap-3 md:gap-5">
-              {userProfile.image && (
-                <Link to="/">
-                  <>
-                    <div className="w-[45px] h-[45px] rounded-full">
-                      <img
-                        // width={45}
-                        // height={45}
-                        className="rounded-full cursor-pointer dark:border-dashed dark:border-white dark:border-2"
-                        src={userProfile.image}
-                        alt="profile"
-                      />
-                    </div>
-                  </>
-                </Link>
-              )}
-
-              <button
-                type="button"
-                className="px-2 h-[45px] w-[45px] border-red-600 border-2 rounded-full"
-                onClick={() => {
-                  googleLogout();
-                  removeUser();
-                }}
-              >
-                <AiOutlineLogout color="red" fontSize={25} />
-              </button>
-            </div>
-          ) : (
-            // <div>{userProfile.userName}</div>
-            <GoogleLogin
-              onSuccess={(response) => createOrGetUser(response, addUser)}
-              onError={(error) => console.log(error)}
-            />
-          )}
+          <div title="Rate the app">
+            <StarIcon className="navBarIcons xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4"  onMouseEnter={function callBack(){
+            setStyle(0);
+            }} onMouseLeave={removeStyle} onClick={()=>{savePopUp(true)}}/>
+          </div>
+          <div title="Logout">
+            <LogoutIcon className="navBarIcons xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4" onMouseEnter={function callBack(){
+            setStyle(1);
+            }} onMouseLeave={removeStyle}/>
+          </div>
         </div>
         <div className="options-pro-logo-container absolute top-[20px] left-[20px]">
           <Link to="/">
@@ -72,6 +72,9 @@ const Navbar = () => {
             />
           </Link>
         </div>
+        
+        <PopUp popUp = {popUp} closeModal={closeModal}/>
+
       </div>
     </div>
   );
