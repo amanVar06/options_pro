@@ -28,7 +28,7 @@ const Features = () => {
                 height="40px"
                 className="mb-2"
               />
-              <span className="capitalize font-semibold dark:text-white">
+              <span className="capitalize font-semibold dark:text-white text-black">
                 {link.name}
               </span>
             </div>

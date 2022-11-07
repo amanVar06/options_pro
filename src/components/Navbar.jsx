@@ -3,7 +3,7 @@ import logo from "../images/logo.jpeg";
 import opt_pro from "../images/opt_pro.png";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import createOrGetUser from "../utils/index";
-import { Button } from "antd";
+import { Button, Switch } from "antd";
 import useAuthStore from "../store/authStore";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -12,12 +12,23 @@ import { AiOutlineLogout } from "react-icons/ai";
 const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
   const navigate = useNavigate();
+
+  const onSwitchToggle = (checked) => {
+    console.log(`switch to ${checked}`);
+  };
   return (
     <div>
       <div className="relative">
         <div className="w-full pb-3 flex xl:flex-row flex-col xl:justify-end items-end xl:items-center navbar pr-3 pt-3 dark:bg-secondary-dark-bg dark:shadow-none">
           <div className="mr-3">
-            <Button type="primary" onClick={() => navigate("/feedback")}>
+            <Switch defaultChecked onChange={onSwitchToggle} />
+          </div>
+          <div className="mr-3">
+            <Button
+              className="bg-blue-500"
+              type="primary"
+              onClick={() => navigate("/feedback")}
+            >
               Redirect
             </Button>
           </div>

@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from "./App";
 import "./index.css";
+// import "antd/dist/antd.css";
 import { ContextProvider } from "./contexts/ContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
