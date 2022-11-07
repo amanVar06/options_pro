@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import logo from "../images/logo.jpeg";
 import opt_pro from "../images/opt_pro.png";
 import createOrGetUser from "../utils/index";
-import { Button } from "antd";
 import useAuthStore from "../store/authStore";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
@@ -11,6 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
+// import { useStateContext } from "../contexts/ContextProvider";
 
 const BlackSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase.Mui-checked": {
@@ -26,16 +26,56 @@ const BlackSwitch = styled(Switch)(({ theme }) => ({
 
 const Navbar = (props) => {
   const { userProfile, addUser, removeUser } = useAuthStore();
-  const navigate = useNavigate();
+  // const { currentMode, setCurrentMode } = useStateContext();
+
+  function setStyle(index) {
+    var colorIs = "";
+    colorIs = "Black";
+    const elements = document.getElementsByClassName("navBarIcons");
+    for (var i = 0; i < elements.length; i++) {
+      if (i === index) {
+        elements[i].style.color = colorIs;
+        elements[i].style.boxShadow = "0px 5px 15px #00000059";
+      }
+    }
+  }
+
+  function removeStyle() {
+    const elements = document.getElementsByClassName("navBarIcons");
+    var colorIs;
+    if (props.currentMode === "Light") colorIs = "rgb(30 58 138)";
+    else colorIs = "White";
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.color = colorIs;
+      elements[i].style.boxShadow = "0px 0px 0px";
+    }
+  }
+
+  function handleChange() {
+    if (props.currentMode === "Light") {
+      props.themeSettings("Dark");
+      // setCurrentMode("Dark");
+    } else {
+      props.themeSettings("Light");
+      // setCurrentMode("Light");
+    }
+  }
+
+  // function changeTheme() {
+  //   if (currentMode === "Light") {
+  //     console.log(currentMode);
+  //     setCurrentMode("Dark");
+  //   } else {
+  //     console.log(currentMode);
+  //     setCurrentMode("Light");
+  //   }
+  // }
+
   return (
     <div>
       <div className="relative">
         <div className="w-full pb-3 flex xl:flex-row flex-col xl:justify-end items-end xl:items-center navbar pr-3 pt-3 dark:bg-secondary-dark-bg dark:shadow-none">
-          <div className="mr-3">
-            <Button type="primary" onClick={() => navigate("/feedback")}>
-              Redirect
-            </Button>
-          </div>
+          <div className="mr-3"></div>
           <p className="xl:text-lg sm:text-sm font-bold flex-nowrap text-blue-900 dark:text-white mr-4">
             {userProfile?.userName
               ? `Welcome, ${userProfile.userName}!`
@@ -48,7 +88,7 @@ const Navbar = (props) => {
           id="NavBarToggle" color="default"/> */}
 
             <BlackSwitch
-              defaultUnChecked
+              // defaultUnChecked
               onChange={handleChange}
               id="NavBarToggle"
             />

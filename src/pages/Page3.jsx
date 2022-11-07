@@ -1,9 +1,21 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { useStateContext } from "../contexts/ContextProvider";
+import {
+  useGetShortLongBuildUpQuery,
+  useGetTopLongBuildUpQuery,
+  useGetTopLongCoverQuery,
+  useGetTopOiGainersQuery,
+  useGetTopOiLosersQuery,
+  useGetTopShortCoverQuery,
+} from "../services/futuresApi";
 
 const Page3 = () => {
   const { currentMode } = useStateContext();
+  // const { data: topGainers, isFetching } = useGetTopOiGainersQuery();
+  // if (isFetching) console.log("loading...");
+
+  // console.log(topGainers);
 
   const dataSource = {
     series: [

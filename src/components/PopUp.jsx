@@ -17,9 +17,9 @@ function PopUp(props) {
         position="left bottom"
       >
         <div className="popupmodel">
-          <a className="closePop" onClick={props.closeModal}>
+          <p className="closePop" onClick={props.closeModal}>
             ❌
-          </a>
+          </p>
           <h1 className="PopUpHeading">Your Feedback matters!!</h1>
           <div className="modal">
             <TextField
