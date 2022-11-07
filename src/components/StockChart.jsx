@@ -8,8 +8,9 @@ import axios from "axios";
 import { Select } from "antd";
 const { Option } = Select;
 
-const StockChart = () => {
-  const { currentMode } = useStateContext();
+const StockChart = (props) => {
+  // const { currentMode } = useStateContext();
+  const currentMode = props.currentMode;
   // const [stockSymbol, setStockSymbol] = useState("SBIN.NS");
   const [price, setPrice] = useState(-1);
   const [priceTime, setPriceTime] = useState(null);
