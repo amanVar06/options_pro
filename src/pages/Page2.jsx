@@ -11,8 +11,9 @@ const columns = [
     title: "Symbol",
     dataIndex: "symbol",
     key: "symbol",
+    width: "15vw",
     render: (text) => (
-      <div className="text-lg">
+      <div className="text-sm md:text-lg">
         <p>{text}</p>
       </div>
     ),
@@ -21,8 +22,9 @@ const columns = [
     title: "OI Trend",
     dataIndex: "oiTrend",
     key: "oiTrend",
+    width: "15vw",
     render: (text) => (
-      <div className="flex flex-row items-center justify-start gap-2 text-lg">
+      <div className="flex flex-row items-center justify-start gap-2 text-sm md:text-lg">
         {/* {true && <span className="text-blue-500">Agg. </span>} */}
         {text !== "Long Build Up" || text === "Long Cover" ? (
           <p className="text-red-500">{text}</p>
@@ -36,12 +38,13 @@ const columns = [
     title: "Spot Price",
     dataIndex: "spotPrice",
     key: "spotPrice",
+    width: "15vw",
     render: (_, { spotPrice }) => (
-      <div className="flex flex-col">
+      <div className="flex flex-col text-sm md:text-lg">
         <div>
-          <p className="text-lg">{spotPrice?.price}</p>
+          <p className="">{spotPrice?.price}</p>
         </div>
-        <div className="text-lg">
+        <div className="">
           {spotPrice?.change > 0 ? (
             <div className="flex items-center gap-1">
               <GoTriangleUp color="green" />
@@ -65,12 +68,13 @@ const columns = [
     title: "Cum. Open Interest",
     key: "coi",
     dataIndex: "coi",
+    width: "15vw",
     render: (_, { coi }) => (
-      <div className="flex flex-col">
+      <div className="flex flex-col text-sm md:text-lg">
         <div>
-          <p className="text-lg">{coi?.price}</p>
+          <p className="">{coi?.price}</p>
         </div>
-        <div className="text-lg">
+        <div className="">
           {coi?.change > 0 ? (
             <div className="flex items-center gap-1">
               <GoTriangleUp color="green" />
@@ -92,13 +96,48 @@ const columns = [
     title: "Quantity/Trades",
     key: "qut",
     dataIndex: "qut",
+    width: "15vw",
     render: (text) => (
-      <div className="text-lg">
+      <div className="text-sm md:text-lg">
         <p>{text}</p>
       </div>
     ),
   },
 ];
+
+// const { data: fnoData, isFetching } = useGetFnoQuery();
+// if (isFetching) {
+//   <ProgressBar
+//     height="80"
+//     width="80"
+//     ariaLabel="progress-bar-loading"
+//     wrapperStyle={{}}
+//     wrapperClass="progress-bar-wrapper"
+//     borderColor="#F4442E"
+//     barColor="#51E5FF"
+//   />;
+// }
+// console.log(fnoData);
+// console.log(tableData);
+// const date = Object.keys(fnoData)[0];
+// console.log(date, typeof date);
+
+// const dataSource = fnoData?.date?.map((data, index) => ({
+//   key: index,
+//   symbol: data?.SYMBOL,
+//   oiTrend: data?.OI_Trend,
+//   spotPrice: {
+//     price: data?.CLOSE?.toFixed(1).toLocaleString("en-US"),
+//     change: data ? data["%_Price_change"]?.toFixed(1) : null,
+//   },
+//   coi: {
+//     price: data?.OPEN_INT?.toLocaleString("en-US"),
+//     change: data ? data["%_OI_change"]?.toFixed(1) : null,
+//   },
+//   qut: data
+//     ? data["Quantity/Trades"]?.toFixed(1).toLocaleString("en-US")
+//     : null,
+// }));
 
 const dataSource = tableData.map((data, index) => ({
   key: index,
@@ -135,7 +174,7 @@ const titleFunction = () => {
 
 const Page2 = () => {
   return (
-    <div className="flex flex-col p-10 justify-center m-auto">
+    <div className="flex justify-center items-center">
       <Table
         className="mt-10"
         columns={columns}

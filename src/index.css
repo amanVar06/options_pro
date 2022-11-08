@@ -31,7 +31,7 @@
 
 .ant-table-thead .ant-table-cell {
   color: rgb(43, 7, 158);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   /* border: 2px solid rgb(205, 205, 205); */
 }
@@ -53,6 +53,11 @@
   color: white;
 }
 
+.ant-table-content .ant-table-row {
+  /* text-align: center; */
+  max-width: 20%;
+}
+
 .dark .ant-table-content .ant-table-row:hover {
   color: black;
 }
@@ -67,7 +72,7 @@
   border-bottom: 1px solid white;
 }
 
-.navStar{
+.navStar {
   margin-right: 0.1rem;
 }
 
@@ -79,7 +84,7 @@
   padding: 10px;
 }
 
-.popupmodel{
+.popupmodel {
   position: relative;
   background-color: white;
   border: 1px solid black;
@@ -90,41 +95,41 @@
   margin-left: 2rem;
 } */
 
-.PopUpHeading{
+.PopUpHeading {
   margin-top: 1rem;
   text-align: center;
   margin-bottom: 2rem;
-  color:rgb(30, 58, 138);
+  color: rgb(30, 58, 138);
   font-weight: 700;
   font-size: 1.2rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
-.PopUpRating{
+.PopUpRating {
   padding-top: 1rem;
   text-align: center;
   margin-left: 3rem;
 }
 
-.closePop{
+.closePop {
   margin-left: 14rem;
 }
 
-.popup-content{
+.popup-content {
   position: absolute !important;
   bottom: 12% !important;
   right: 1% !important;
   pointer-events: auto !important;
 }
 
-.Feedback{
+.Feedback {
   position: fixed;
   bottom: 2%;
   right: 1%;
 }
 
-.sendButton{
+.sendButton {
   display: block;
   margin-top: 1rem !important;
   text-align: center !important;
@@ -132,12 +137,13 @@
   margin-bottom: 1rem !important;
 }
 
-.loginsignup{
+.loginsignup {
   margin-top: 5rem;
   margin-left: 50%;
   margin-bottom: 5rem;
   margin-right: 10%;
 }
+<<<<<<< HEAD
 
 .page5div1{
  display: inline-block;
@@ -184,3 +190,5 @@
    }
    
  }
+=======
+>>>>>>> 3f0b301994b479e85c7cd73c23b8bb28d6c31ecb

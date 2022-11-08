@@ -10,6 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
+// import { useStateContext } from "../contexts/ContextProvider";
 
 const BlackSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase.Mui-checked": {
@@ -25,6 +26,7 @@ const BlackSwitch = styled(Switch)(({ theme }) => ({
 
 const Navbar = (props) => {
   const { userProfile, addUser, removeUser } = useAuthStore();
+  // const { currentMode, setCurrentMode } = useStateContext();
 
   function setStyle(index) {
     var colorIs = "";
@@ -50,9 +52,24 @@ const Navbar = (props) => {
   }
 
   function handleChange() {
-    if (props.currentMode === "Light") props.themeSettings("Dark");
-    else props.themeSettings("Light");
+    if (props.currentMode === "Light") {
+      props.themeSettings("Dark");
+      // setCurrentMode("Dark");
+    } else {
+      props.themeSettings("Light");
+      // setCurrentMode("Light");
+    }
   }
+
+  // function changeTheme() {
+  //   if (currentMode === "Light") {
+  //     console.log(currentMode);
+  //     setCurrentMode("Dark");
+  //   } else {
+  //     console.log(currentMode);
+  //     setCurrentMode("Light");
+  //   }
+  // }
 
   return (
     <div>
@@ -71,7 +88,7 @@ const Navbar = (props) => {
           id="NavBarToggle" color="default"/> */}
 
             <BlackSwitch
-              defaultUnChecked
+              // defaultUnChecked
               onChange={handleChange}
               id="NavBarToggle"
             />
