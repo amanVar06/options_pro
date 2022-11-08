@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "http://optionsdashboard.herokuapp.com/getoi";
+const baseUrl = "https://optionsdashboard.herokuapp.com/getoi";
 
 const createRequest = (url) => ({ url });
 

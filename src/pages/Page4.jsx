@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Chart from "react-apexcharts";
 import { useStateContext } from "../contexts/ContextProvider";
-// import { useGetOiQuery } from "../services/optionsApi";
-import oiData from "../data/oiData.json";
+import { useGetOiQuery } from "../services/optionsApi";
+// import oiData from "../data/oiData.json";
 import { symbols } from "../data/dummyLinks";
 import { Select } from "antd";
+import { ColorRing } from "react-loader-spinner";
 
 const { Option } = Select;
 
@@ -13,23 +14,39 @@ const Page4 = () => {
   const [stockName, setStockName] = useState("tcs");
 
   const { currentMode } = useStateContext();
-  // const { data, isFetching } = useGetOiQuery(stockName);
-  // if (isFetching) console.log("loading...");
+  const { data: oiData, isFetching } = useGetOiQuery(stockName);
+  if (isFetching) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      </div>
+    );
+  }
   // console.log(data);
 
-  console.log(oiData);
-  console.log(currentMode);
+  // console.log(stockName);
+
+  // console.log(oiData);
+  // console.log(currentMode);
 
   const series = [
     {
       name: "Call Options",
       type: "column",
-      data: oiData.map((data) => data.OPEN_INT_CE),
+      data: oiData ? oiData?.map((item) => item.OPEN_INT_CE) : [],
     },
     {
       name: "Put Options",
       type: "column",
-      data: oiData.map((data) => data.OPEN_INT_PE),
+      data: oiData ? oiData?.map((item) => item.OPEN_INT_PE) : [],
     },
   ];
 
@@ -64,7 +81,7 @@ const Page4 = () => {
       },
     },
     xaxis: {
-      categories: oiData.map((data) => data.STRIKE_PR),
+      categories: oiData ? oiData?.map((item) => item.STRIKE_PR) : [],
       labels: {
         rotate: -75,
         rotateAlways: true,
@@ -160,7 +177,7 @@ const Page4 = () => {
           {/* <Option value="TCS">TCS</Option> */}
           {stockOptions?.map((stock, index) => (
             <Option key={index} value={stock}>
-              {stock.slice(0, -3)}
+              {stock}
             </Option>
           ))}
         </Select>

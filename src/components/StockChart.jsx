@@ -66,6 +66,9 @@ const StockChart = (props) => {
       toolbar: {
         show: false,
       },
+      zoom: {
+        enabled: false,
+      },
     },
     title: {
       text: "",
