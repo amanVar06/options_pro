@@ -138,3 +138,49 @@
   margin-bottom: 5rem;
   margin-right: 10%;
 }
+
+.page5div1{
+ display: inline-block;
+}
+
+.page5div2{
+  display: inline-block;
+  margin-left: 50px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .page5div1{
+    display: block;
+  }
+
+  .page5div2{
+    display: block;
+    margin-top: 25px;
+    margin-left: 0px;
+  }
+  
+}
+
+.page6div1{
+  display: inline-block;
+ }
+ 
+ .page6div2{
+   display: inline-block;
+   margin-left: 50px;
+ }
+ 
+ 
+ @media only screen and (max-width: 600px) {
+   .page6div1{
+     display: block;
+   }
+ 
+   .page6div2{
+     display: block;
+     margin-top: 25px;
+     margin-left: 0px;
+   }
+   
+ }
