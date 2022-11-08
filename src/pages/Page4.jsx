@@ -5,6 +5,7 @@ import { useGetOiQuery } from "../services/optionsApi";
 // import oiData from "../data/oiData.json";
 import { symbols } from "../data/dummyLinks";
 import { Select } from "antd";
+import { ColorRing } from "react-loader-spinner";
 
 const { Option } = Select;
 
@@ -14,7 +15,21 @@ const Page4 = () => {
 
   const { currentMode } = useStateContext();
   const { data: oiData, isFetching } = useGetOiQuery(stockName);
-  if (isFetching) console.log("loading...");
+  if (isFetching) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      </div>
+    );
+  }
   // console.log(data);
 
   // console.log(stockName);
