@@ -91,6 +91,13 @@
   border-radius: 2%;
 }
 
+.popupmodel1 {
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 2%;
+}
+
 /* #PopUp_Issue{
   margin-left: 2rem;
 } */
