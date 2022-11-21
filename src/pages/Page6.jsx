@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 import Button from '@mui/material/Button';
-import InformationAlert from "../different alert messages/information.tsx";
+import InformationAlert from "../different alert messages/information";
 import ReactApexChart from "react-apexcharts";
 import { ExpandLess } from "@mui/icons-material";
 import ReactLoading from 'react-loading';
