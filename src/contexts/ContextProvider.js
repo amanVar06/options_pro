@@ -3,11 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const [currentMode, setCurrentMode] = useState(
-    localStorage.getItem("themeMode")
-      ? localStorage.getItem("themeMode")
-      : "Light"
-  );
+  const [currentMode, setCurrentMode] = useState("Light");
   // const [themeSettings, setThemeSettings] = useState(false);
 
   // const setMode = (e) => {
