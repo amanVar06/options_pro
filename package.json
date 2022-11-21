@@ -56,10 +56,6 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "eslintIgnore": [
-      "node_modules",
-      "build/*"
-    ],
     
     "extends": [
       "react-app",
