@@ -1,11 +1,4 @@
 import React from "react";
-
-const Page1 = () => {
-  return <div>Page1</div>;
-};
-
-export default Page1;
-import React from "react";
 import { useState } from "react";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
