@@ -4,7 +4,9 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [currentMode, setCurrentMode] = useState(
-    localStorage.getItem("themeMode") ?? "Light"
+    localStorage.getItem("themeMode")
+      ? localStorage.getItem("themeMode")
+      : "Light"
   );
   // const [themeSettings, setThemeSettings] = useState(false);
 
