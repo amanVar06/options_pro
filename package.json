@@ -56,15 +56,17 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "eslintIgnore": [
+      "node_modules",
+      "build/*"
+    ],
+    
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
-  "eslintIgnore": [
-    "node_modules",
-    "build/*"
-  ],
+  
   "browserslist": {
     "production": [
       ">0.2%",
