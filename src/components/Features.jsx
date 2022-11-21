@@ -10,7 +10,10 @@ const Features = () => {
           Features
         </p>
       </div>
-      <div className="xl:m-auto grid grid-cols-2 gap-x-24 gap-y-10">
+      <div
+        className="flex flex-col items-center justify-center gap-5
+      xs:flex-row xs:flex-wrap xs:gap-3 sm:grid sm:grid-cols-3 lg:grid-cols-2 sm:gap-y-6 sm:gap-x-10 lg:gap-x-24 xl:ml-14"
+      >
         {links.map((link, index) => (
           <NavLink
             to={`/page${index + 1}`}
@@ -19,7 +22,7 @@ const Features = () => {
           >
             <div
               key={link.name}
-              className="bg-white w-[160px] p-5 rounded-3xl shadow-xl h-[120px] dark:bg-secondary-dark-bg"
+              className="bg-white w-[160px] xl:w-[200px] xl:h-[150px] p-5 rounded-3xl shadow-xl h-[120px] xl:px-8 dark:bg-secondary-dark-bg"
             >
               <img
                 src={require(`../images/${link.icon}`)}
@@ -28,7 +31,7 @@ const Features = () => {
                 height="40px"
                 className="mb-2"
               />
-              <span className="capitalize font-semibold dark:text-white text-black">
+              <span className="capitalize xl:text-lg font-semibold dark:text-white text-black">
                 {link.name}
               </span>
             </div>

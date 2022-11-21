@@ -12,7 +12,7 @@ const { Option } = Select;
 const StockChart = () => {
   const { currentMode } = useStateContext();
 
-  const [stockSymbol, setStockSymbol] = useState("SBIN.NS");
+  const [stockSymbol, setStockSymbol] = useState("TCS.NS");
   const [price, setPrice] = useState(-1);
   const [priceTime, setPriceTime] = useState(null);
 
@@ -123,13 +123,14 @@ const StockChart = () => {
           wrapperStyle={{}}
           wrapperClass="blocks-wrapper"
           colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+          className="mb-5"
         />
       </div>
     );
 
   return (
     <div className="flex flex-col gap-5 justify-center">
-      <div className="pl-2 pb-5 gap-4 flex flex-col xl:items-center xl:flex-row xl:justify-between">
+      <div className="pl-2 pb-5 gap-4 flex flex-col md:items-center md:flex-row md:justify-between">
         <p className="font-bold text-5xl text-blue-900 dark:text-white">
           See Your <br /> Favorite Stocks
         </p>
@@ -137,6 +138,7 @@ const StockChart = () => {
           <Select
             showSearch
             className="w-[180px] font-bold dark:text-black"
+            value={stockSymbol.slice(0, -3)}
             placeholder="Select a Stock"
             optionFilterProp="children"
             onChange={(value) => setStockSymbol(symbols[value] + ".NS")}
@@ -161,7 +163,7 @@ const StockChart = () => {
           options={chartData.options}
           series={series}
           type="candlestick"
-          className={`dark:text-white min-w-full`}
+          className={`dark:text-white max-w-screen-md`}
         />
       </div>
     </div>
