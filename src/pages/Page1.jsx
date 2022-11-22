@@ -475,6 +475,7 @@ const Page1 = () => {
               marginTop: "1.8rem",
               marginLeft: "1%",
               padding: "15px",
+              marginBottom: "1.8rem"
             }}
             type="submit"
             onClick={submitFun}
@@ -498,6 +499,7 @@ const Page1 = () => {
               position: "absolute",
               top: "20%",
               left: "30%",
+              right: "25px",
               backgroundColor: "#1E3A8A",
               padding: "75px",
               borderRadius: "15%",
