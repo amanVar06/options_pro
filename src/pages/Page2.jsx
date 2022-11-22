@@ -6,7 +6,7 @@ import { GiFunnel } from "react-icons/gi";
 import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
 import { tableData } from "../data/tableData";
 import { ColorRing } from "react-loader-spinner";
-import { useGetFnoQuery } from "../services/fnoApi";
+// import { useGetFnoQuery } from "../services/fnoApi";
 
 const columns = [
   {
@@ -107,20 +107,20 @@ const columns = [
   },
 ];
 
-// const dataSource = tableData.map((data, index) => ({
-//   key: index,
-//   symbol: data[1],
-//   oiTrend: data[6],
-//   spotPrice: {
-//     price: data[2].toFixed(1).toLocaleString("en-US"),
-//     change: data[5].toFixed(1),
-//   },
-//   coi: {
-//     price: data[0].toLocaleString("en-US"),
-//     change: data[3].toFixed(1),
-//   },
-//   qut: data[4].toFixed(1).toLocaleString("en-US"),
-// }));
+const dataSource = tableData.map((data, index) => ({
+  key: index,
+  symbol: data[1],
+  oiTrend: data[6],
+  spotPrice: {
+    price: data[2].toFixed(1).toLocaleString("en-US"),
+    change: data[5].toFixed(1),
+  },
+  coi: {
+    price: data[0].toLocaleString("en-US"),
+    change: data[3].toFixed(1),
+  },
+  qut: data[4].toFixed(1).toLocaleString("en-US"),
+}));
 
 const titleFunction = () => {
   const today = new Date();
@@ -141,44 +141,44 @@ const titleFunction = () => {
 };
 
 const Page2 = () => {
-  const { data: fnoData, isFetching } = useGetFnoQuery();
-  if (isFetching) {
-    console.log("loading...");
-    return (
-      <div className="h-screen flex items-center justify-center">
-        <ColorRing
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="blocks-loading"
-          wrapperStyle={{}}
-          wrapperClass="blocks-wrapper"
-          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-        />
-      </div>
-    );
-  }
+  // const { data: fnoData, isFetching } = useGetFnoQuery();
+  // if (isFetching) {
+  //   console.log("loading...");
+  //   return (
+  //     <div className="h-screen flex items-center justify-center">
+  //       <ColorRing
+  //         visible={true}
+  //         height="80"
+  //         width="80"
+  //         ariaLabel="blocks-loading"
+  //         wrapperStyle={{}}
+  //         wrapperClass="blocks-wrapper"
+  //         colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+  //       />
+  //     </div>
+  //   );
+  // }
 
   // console.log(fnoData);
-  const date = Object.keys(fnoData)[0];
+  // const date = Object.keys(fnoData)[0];
   // console.log(date, typeof date);
 
-  const dataSource = fnoData?.[date]?.map((data, index) => ({
-    key: index,
-    symbol: data?.SYMBOL,
-    oiTrend: data?.OI_Trend,
-    spotPrice: {
-      price: data?.CLOSE?.toFixed(1).toLocaleString("en-US"),
-      change: data ? data["%_Price_change"]?.toFixed(1) : null,
-    },
-    coi: {
-      price: data?.OPEN_INT?.toLocaleString("en-US"),
-      change: data ? data["%_OI_change"]?.toFixed(1) : null,
-    },
-    qut: data
-      ? data["Quantity/Trades"]?.toFixed(1).toLocaleString("en-US")
-      : null,
-  }));
+  // const dataSource = fnoData?.[date]?.map((data, index) => ({
+  //   key: index,
+  //   symbol: data?.SYMBOL,
+  //   oiTrend: data?.OI_Trend,
+  //   spotPrice: {
+  //     price: data?.CLOSE?.toFixed(1).toLocaleString("en-US"),
+  //     change: data ? data["%_Price_change"]?.toFixed(1) : null,
+  //   },
+  //   coi: {
+  //     price: data?.OPEN_INT?.toLocaleString("en-US"),
+  //     change: data ? data["%_OI_change"]?.toFixed(1) : null,
+  //   },
+  //   qut: data
+  //     ? data["Quantity/Trades"]?.toFixed(1).toLocaleString("en-US")
+  //     : null,
+  // }));
 
   // console.log(dataSource);
 
