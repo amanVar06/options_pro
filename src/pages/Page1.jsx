@@ -28,6 +28,7 @@ import Alert from "../components/Alert";
 import Slide from "@mui/material/Slide";
 import CloseIcon from '@mui/icons-material/Close';
 import Switch from '@mui/material/Switch';
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -37,7 +38,7 @@ const Item = styled(Paper)(({ theme }) => ({
   boxShadow: "none",
 }));
 
-const Page1 = (props) => {
+const Page1 = () => {
   const [radio, setRadio] = useState("shortstraddle");
   const [selPut, setSelPut] = useState("");
   const [selCall, setSelCall] = useState("");
@@ -51,6 +52,7 @@ const Page1 = (props) => {
   const closeModal = () => savePopUp(false);
   const [data, setData] = useState("");
   const [checked, setChecked] = React.useState(false);
+  const { currentMode } = useStateContext();
 
   const handleChange = () => {
     setChecked((prev) => !prev);
@@ -423,12 +425,12 @@ const Page1 = (props) => {
               <FormControlLabel
                 value="shortstraddle"
                 style={{
-                  color: props.currentMode === "Dark" ? "white" : "black",
+                  color: currentMode === "Dark" ? "white" : "black",
                 }}
                 control={
                   <Radio
                     style={{
-                      color: props.currentMode === "Dark" ? "white" : "#1E3A8A",
+                      color: currentMode === "Dark" ? "white" : "#1E3A8A",
                     }}
                   />
                 }
@@ -437,12 +439,12 @@ const Page1 = (props) => {
               <FormControlLabel
                 value="ironcondor"
                 style={{
-                  color: props.currentMode === "Dark" ? "white" : "black",
+                  color: currentMode === "Dark" ? "white" : "black",
                 }}
                 control={
                   <Radio
                     style={{
-                      color: props.currentMode === "Dark" ? "white" : "#1E3A8A",
+                      color: currentMode === "Dark" ? "white" : "#1E3A8A",
                     }}
                   />
                 }
@@ -451,12 +453,12 @@ const Page1 = (props) => {
               <FormControlLabel
                 value="shortstrangle"
                 style={{
-                  color: props.currentMode === "Dark" ? "white" : "black",
+                  color: currentMode === "Dark" ? "white" : "black",
                 }}
                 control={
                   <Radio
                     style={{
-                      color: props.currentMode === "Dark" ? "white" : "#1E3A8A",
+                      color: currentMode === "Dark" ? "white" : "#1E3A8A",
                     }}
                   />
                 }
