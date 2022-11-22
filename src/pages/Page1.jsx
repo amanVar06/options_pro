@@ -70,8 +70,7 @@ const Page1 = () => {
     ) {
       return;
     } else {
-      savePopUp(true);
-      setChecked(true);
+      
       const date = await axios({
         method: "GET",
         url:
@@ -94,6 +93,8 @@ const Page1 = () => {
       });
       const val = await date.data;
       setData(val);
+      savePopUp(true);
+      setChecked(true);
       setSubmit(false);
     }
   };
@@ -498,7 +499,7 @@ const Page1 = () => {
             style={{
               position: "absolute",
               top: "20%",
-              left: "30%",
+              left: "30px",
               right: "25px",
               backgroundColor: "#1E3A8A",
               padding: "75px",
