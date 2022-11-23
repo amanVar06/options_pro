@@ -36,7 +36,7 @@ export const stockOptions = [
 ];
 
 export const symbols = {
-  // NIFTY: "NIFTY",
+  NIFTY: "NIFTY",
   "Reliance Industries": "RELIANCE",
   "Tata Consultancy Services": "TCS",
   "HDFC Bank": "HDFCBANK",
