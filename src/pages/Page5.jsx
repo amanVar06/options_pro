@@ -233,9 +233,9 @@ const Page5 = () => {
       {nothing && <InformationAlert name="Futures OI" />}
       {graph && (
         <ReactApexChart
-          style={{ display: "block", marginLeft: "20%", marginTop: "30px" }}
+          style={{ display: "block", marginLeft: "20px",marginRight: "20px", marginTop: "30px" }}
           options={options}
-          width="75%"
+          width="95%"
           series={series}
           type="area"
           height={350}
